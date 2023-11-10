@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <style>
+       body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url('back2.jpg');
+        background-size: cover; /* Adjust as needed */
+        background-repeat: no-repeat; /* Adjust as needed */
+    }
+
+
+        header {
+            width: 100%;
+            background: #fd9f9f;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            border-radius: 10px;
+            position: relative;
+        }
+        .logo-nav ul li a{
+            color: #fff;
+
+        }
+        label{
+            display: none;
+        }
+        nav ul{
+            display: flex;
+            gap: 1rem;
+        }
+        nav ul li a{
+            text-decoration: none;
+        }
+        @media screen and (max-width:480px){
+            label{
+                display: block;
+            }
+            nav{
+                width: 150px;
+                position: absolute;
+                background: #f2f2f2;
+                top: 10px;
+                right: 10px;
+                padding: 10px;
+                border-radius: 5px;
+                visibility: hidden;
+                opacity: 0;
+                transition: 3s ease;
+            }
+            nav ul li a nav label{
+                color: #000;
+            }
+            nav label{
+                text-align: right;
+            }
+            input:checked ~ nav{
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+
+
+        h1 {
+            margin: 0;
+        }
+
+        .search-section {
+            text-align: center;
+            padding: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        /* Add borders to all tables on the page */
+        table {
+            border-collapse: collapse; /* Combine adjacent table borders into a single border */
+            width: 100%;
+        }
+
+        /* Style for table headers (th) */
+        th {
+            border: 1px solid #000; /* 1px solid black border around header cells */
+            padding: 8px;
+            background-color: #e9baba;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Style for table cells (td) */
+        td {
+            border: 1px solid #000; /* 1px solid black border around data cells */
+            padding: 8px;
+        }
+
+        /* Style for even rows (alternating background color) */
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Style for table hover effect */
+        tr:hover {
+            background-color: #ddd;
+        }
+        .floating-table-container {
+         float: left; /* Make the container float to the left */
+         margin: 20px; /* Add some margin for spacing */
+        }
+
+        .floating-table {
+            border-collapse: collapse;
+            width: 300px; /* Adjust the width as needed */
+            background-color: #f0f0f0; /* Background color for the table */
+            border: 1px solid #ccc; /* Border for the table */
+            border-radius: 5px; /* Add rounded corners to the table */
+        }
+
+        .floating-table caption {
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .floating-table th, .floating-table td {
+            border: 1px solid #ccc; /* Border for table cells */
+            padding: 10px;
+        }
+
+        .floating-table th {
+            background-color: #e9baba; /* Background color for header cells */
+            color: #fff; /* Text color for header cells */
+            text-align: center;
+        }
+
+        .floating-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .floating-table tr:hover {
+            background-color: #ddd;
+        }
+
+        footer {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+      
+        .box{
+            background-color: #f2f2f2;
+            width: 330px;
+            height: 50px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0px 25px ;
+            border-color: #000000;
+
+        }
+        input{
+            width: 240;
+            border: none;
+            outline: none;
+            background: none;
+            font-size: 18px;
+        }
+        .fa-solid:hover{
+            color: orangered;
+            cursor: pointer;
+
+        }
+        h1{
+            color: #000000;
+        }
+        a{
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1><img src="872.png" alt="" width="10%" height="10%"></h1>
+        </div>
+        <center><h1>makeupBOX</h1></center>
+        <label for="menu">
+            <i class="fa-solid fa-bars"></i>
+        </label>
+        <nav>
+            <ul>
+                <li><a href="#">home</a></li>
+                <li><a href="#">about</a></li>
+                <li><a href="crud.html">CART</a></li>
+                <li><a href="#">contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="search-section">
+        <center>
+        <div class="box">
+             <input type="text" id="brand_input" placeholder="Enter brand name">
+             <i class="fa-solid fa magnifying-gl"></i>
+        </div>
+        
+        <div class="box">
+        <input type="text" id="productType" placeholder="Enter product type">
+        </div>
+        </center>
+        <button onclick="buttonClicked()">Search</button>
+    </section>
+
+    <section class="results">
+        <table>
+            <caption>Search Results</caption>
+            <thead>
+                <tr>
+                    <th colspan="2"><p id="image1"></p></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Brand</th>
+                    <td style="border: 1px solid #ccc; padding: 8px;"><p id="brand1"></p></td>
+                    
+                </tr>
+                <tr>
+                    <th>Product</th>
+                    <td style="border: 1px solid #ccc; padding: 8px;"><p id="product1"></p></td>
+                    
+                </tr>
+                <tr>
+                    <th>Price</th>
+                    <td style="border: 1px solid #ccc; padding: 8px;">$<p id="price1"></p></td>
+                    
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td style="border: 1px solid #ccc; padding: 8px;"><p id="desc1"></p></td>
+                    
+                </tr>
+                <tr>
+                    <th>Website Link</th>
+                    <td style="border: 1px solid #ccc; padding: 8px;"><p id="web1"></p></td>
+                </tr>
+                <tr>
+                    <th>rate</th>
+                    <td style="border: 1px solid #ccc; padding: 8px;"><p id="rate1"></p></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><center><button id="btnCreate1" class="btn btn-default">Save Data</button></center></td>
+                </tr>
+                <!-- Add more rows similarly -->
+            </tbody>
+        </table>
+  
+            <table>
+                <caption>Search Results</caption>
+                <thead>
+                    <tr>
+                        <th colspan="2"><p id="image2"></p></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Brand</th>
+                        <td style="border: 1px solid #ccc; padding: 8px;"><p id="brand2"></p></td>
+                        
+                    </tr>
+                    <tr>
+                        <th>Product</th>
+                        <td style="border: 1px solid #ccc; padding: 8px;"><p id="product2"></p></td>
+                        
+                    </tr>
+                    <tr>
+                        <th>Price</th>
+                        <td style="border: 1px solid #ccc; padding: 8px;">$<p id="price2"></p></td>
+                        
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td style="border: 1px solid #ccc; padding: 8px;"><p id="desc2"></p></td>
+                        
+                    </tr>
+                    <tr>
+                        <th>Website Link</th>
+                        <td style="border: 1px solid #ccc; padding: 8px;"><p id="web2"></p></td>
+                    </tr>
+                    <tr>
+                        <th>rate</th>
+                        <td style="border: 1px solid #ccc; padding: 8px;"><p id="rate2"></p></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><center><button id="btnCreate2" class="btn btn-default">Save Data</button></center></td>
+                    </tr>
+                    <!-- Add more rows similarly -->
+                </tbody>
+            </table>
+   
+        <table>
+            <caption>Search Results</caption>
+            <thead>
+                <tr>
+                    <th colspan="2"><p id="image3"></p></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Brand</th>
+                    <td style="border: 1px solid #ccc; padding: 8px;"><p id="brand3"></p></td>
+                    
+                </tr>
+                <tr>
+                    <th>Product</th>
+                    <td style="border: 1px solid #ccc; padding: 8px;"><p id="product3"></p></td>
+                    
+                </tr>
+                <tr>
+                    <th>Price</th>
+                    <td style="border: 1px solid #ccc; padding: 8px;">$<p id="price3"></p></td>
+                    
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td style="border: 1px solid #ccc; padding: 8px;"><p id="desc3"></p></td>
+                    
+                </tr>
+                <tr>
+                    <th>Website Link</th>
+                    <td style="border: 1px solid #ccc; padding: 8px;"><p id="web3"></p></td>
+                </tr>
+                <tr>
+                    <th>rate</th>
+                    <td style="border: 1px solid #ccc; padding: 8px;"><p id="rate3"></p></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><center><button id="btnCreate3" class="btn btn-default">Save Data</button></center></td>
+                </tr>
+                <!-- Add more rows similarly -->
+            </tbody>
+        </table>
+        <table>
+            <caption>Search Results</caption>
+            <thead>
+                <tr>
+                    <th colspan="2"><p id="image4"></p></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Brand</th>
+                    <td style="border: 1px solid #ccc; padding: 8px;"><p id="brand4"></p></td>
+                    
+                </tr>
+                <tr>
+                    <th>Product</th>
+                    <td style="border: 1px solid #ccc; padding: 8px;"><p id="product4"></p></td>
+                    
+                </tr>
+                <tr>
+                    <th>Price</th>
+                    <td style="border: 1px solid #ccc; padding: 8px;">$<p id="price4"></p></td>
+                    
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td style="border: 1px solid #ccc; padding: 8px;"><p id="desc4"></p></td>
+                    
+                </tr>
+                <tr>
+                    <th>Website Link</th>
+                    <td style="border: 1px solid #ccc; padding: 8px;"><p id="web4"></p></td>
+                </tr>
+                <tr>
+                    <th>rate</th>
+                    <td style="border: 1px solid #ccc; padding: 8px;"><p id="rate4"></p></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><center><button id="btnCreate4" class="btn btn-default">Save Data</button></center></td>
+                </tr>
+                <!-- Add more rows similarly -->
+            </tbody>
+        </table>
+        <table>
+            <caption>Search Results</caption>
+            <thead>
+                <tr>
+                    <th colspan="2"><p id="image5"></p></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Brand</th>
+                    <td style="border: 1px solid #ccc; padding: 8px;"><p id="brand5"></p></td>
+                    
+                </tr>
+                <tr>
+                    <th>Product</th>
+                    <td style="border: 1px solid #ccc; padding: 8px;"><p id="product5"></p></td>
+                    
+                </tr>
+                <tr>
+                    <th>Price</th>
+                    <td style="border: 1px solid #ccc; padding: 8px;">$<p id="price5"></p></td>
+                    
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td style="border: 1px solid #ccc; padding: 8px;"><p id="desc5"></p></td>
+                    
+                </tr>
+                <tr>
+                    <th>Website Link</th>
+                    <td style="border: 1px solid #ccc; padding: 8px;"><p id="web5"></p></td>
+                </tr>
+                <tr>
+                    <th>rate</th>
+                    <td style="border: 1px solid #ccc; padding: 8px;"><p id="rate5"></p></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><center><button id="btnCreate5" class="btn btn-default">Save Data</button></center></td>
+                </tr>
+                <!-- Add more rows similarly -->
+            </tbody>
+        </table>
+    </section>
+
+    <center><h1>HOTTEST ITEM</h1></center>
+   
+    <button onclick="recommend()">Search</button>
+    <div>
+        <li><p id="nama1"></p><p id="harga1"></p><p id="brend1"></p></li><br>
+        <li><p id="nama2"></p><p id="harga2"></p><p id="brend2"></p></li><br>
+        <li><p id="nama3"></p><p id="harga3"></p><p id="brend3"></p></li><br>
+        <li><p id="nama4"></p><p id="harga4"></p><p id="brend4"></p></li><br>
+        <li><p id="nama5"></p><p id="harga5"></p><p id="brend5"></p></li><br>
+    </div><br><br>
+    
+        
+
+    <footer>
+        <p>&copy; HADI makeupBOX SDN.BHD. All rights reserved.</p>
+        
+    </footer>
+    <script src="main.js"></script>
+   
+</body>
+</html>
